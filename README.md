@@ -1,7 +1,6 @@
 # React State Viewer
 
-__COMPONENT DESCRIPTION GOES HERE__
-
+Nifty tool to view state/props/object of a react component (on-screen) in your app. 
 
 ## Demo & Examples
 
@@ -58,4 +57,3 @@ To build, watch and serve the examples (which will also watch the component sour
 __PUT LICENSE HERE__
 
 Copyright (c) 2017 Gurpreet Hanjra.
-
