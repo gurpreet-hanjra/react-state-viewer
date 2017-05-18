@@ -12,21 +12,88 @@ var _react = (typeof window !== "undefined" ? window['React'] : typeof global !=
 
 var _react2 = _interopRequireDefault(_react);
 
-var StateExplorer = function StateExplorer(props) {
+var _Title = require('./Title');
+
+var _Title2 = _interopRequireDefault(_Title);
+
+var style = {
+  position: 'fixed',
+  zIndex: 2000,
+  width: '400px',
+  right: 0,
+  height: 'calc(100% - 12px)',
+  top: 0,
+  border: '1px solid wheat',
+  borderRadius: '5px',
+  margin: '5px',
+  background: 'white'
+};
+
+var preStyle = {
+  whiteSpace: 'normal',
+  margin: '10px'
+};
+
+var testState = {
+  name: 'Gurpreet',
+  alt: 32
+};
+
+var StateViewer = function StateViewer(props) {
   var result = undefined;
-  !props.hasOwnProperty('explore') ? result = 'Got nothing to explore!' : result = JSON.stringify(props.explore, null, 2);
+  !props.hasOwnProperty('view') ? result = 'Feed me something! Seems like you forgot to pass an object to view.' : result = JSON.stringify(props.view, null, 2);
   return _react2['default'].createElement(
-    'pre',
-    null,
-    result
+    'div',
+    { style: style },
+    _react2['default'].createElement(_Title2['default'], { title: 'State Viewer' }),
+    _react2['default'].createElement(
+      'pre',
+      { style: preStyle },
+      result
+    )
   );
 };
 
-StateExplorer.propTypes = {
-  explore: _react2['default'].PropTypes.object
+StateViewer.propTypes = {
+  view: _react2['default'].PropTypes.object
 };
 
-exports['default'] = StateExplorer;
+exports['default'] = StateViewer;
+module.exports = exports['default'];
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./Title":2}],2:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var style = {
+  borderBottom: ' 1px solid wheat',
+  padding: '5px 10px',
+  margin: 0,
+  borderRadius: '5px',
+  background: 'beige'
+};
+
+var Title = function Title(props) {
+  console.log(props);
+  return _react2['default'].createElement(
+    'h3',
+    { style: style, onMouseUp: props.startDrag },
+    props.title
+  );
+};
+
+exports['default'] = Title;
 module.exports = exports['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})

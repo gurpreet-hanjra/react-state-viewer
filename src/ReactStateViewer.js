@@ -6,7 +6,17 @@ const style = {
   zIndex: 2000,
   width: '400px',
   right: 0,
-  height: '100%'
+  height: 'calc(100% - 12px)',
+  top: 0,
+  border: '1px solid wheat',
+  borderRadius: '5px',
+  margin: '5px',
+  background: 'white'
+};
+
+const preStyle = {
+  whiteSpace: 'normal',
+  margin: '10px'
 };
 
 const testState = {
@@ -14,16 +24,21 @@ const testState = {
   alt: 32
 };
 
-const StateExplorer = props => {
+const StateViewer = props => {
   let result;
-  !props.hasOwnProperty('explore')
-    ? (result = `Feed me something!`)
-    : (result = JSON.stringify(props.explore, null, 2));
-  return <pre style={style}>{result}</pre>;
+  !props.hasOwnProperty('view')
+    ? (result = `Feed me something! Seems like you forgot to pass an object to view.`)
+    : (result = JSON.stringify(props.view, null, 2));
+  return (
+    <div style={style}>
+      <Title title={'State Viewer'} />
+      <pre style={preStyle}>{result}</pre>
+    </div>
+  );
 };
 
-StateExplorer.propTypes = {
-  explore: React.PropTypes.object
+StateViewer.propTypes = {
+  view: React.PropTypes.object
 };
 
-export default StateExplorer;
+export default StateViewer;

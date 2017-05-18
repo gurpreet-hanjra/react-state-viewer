@@ -1,6 +1,6 @@
 {
   "name": "react-state-viewer",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "React State Viewer",
   "main": "lib/ReactStateViewer.js",
   "author": "Gurpreet Hanjra",
